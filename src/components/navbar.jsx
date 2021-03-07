@@ -7,6 +7,7 @@ import React, { Component } from "react";
 // Destructuring arguments is used here so that this.props may not be repeated again
 
 const NavBar = ({ totalCounters }) => {
+  console.log("Navbar - render");
   return (
     <nav className="navbar navbar-light bg-light">
       <a className="navbar-brand" href="#">

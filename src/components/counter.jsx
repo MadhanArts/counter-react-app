@@ -36,8 +36,25 @@ class Counter extends Component {
   //   this.handleIncrement({ id: 1 });
   // };
 
+  // Update Phase
+  // It can be used to check whether the state is updated or not
+  // If not updated, we can make AJAX call to fewtch data
+  componentDidUpdate(prevProps, prevState)
+  {
+    console.log('prevProps', prevProps);
+    console.log('prevState', prevState);
+  }
+
+
+  // It will be called before the component is deleted or removed
+  // We can use it to remove all the listeners or depending variables of that component
+  componentWillUnmount() {
+    console.log('Counter - unmount');
+  }
+
   render() {
     //    console.log(this.props);
+    console.log("counter - render");
     return (
       <div>
         {/* <h4>{this.props.id}</h4> */}

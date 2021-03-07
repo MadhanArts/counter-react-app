@@ -3,6 +3,15 @@ import "./App.css";
 import NavBar from "./components/navbar";
 import Counters from "./components/counters";
 
+// React has lifecycle hooks method callbacks which will 
+// call when particular event occurs
+// Mount ----- constructor, render, componentDidMount
+// Update ---- render, componentDidUpdate
+// Unmount --- componentWillUnmount
+
+
+
+
 class App extends Component {
   state = {
     counters: [
@@ -12,6 +21,21 @@ class App extends Component {
       { id: 4, value: 0 },
     ],
   };
+
+  // // Mount phase -- first call
+  constructor(props)
+  {
+    super(props);
+    console.log("App constructor");
+  }
+
+  // // Mount phase -- 3rd call componentDidMount 
+  // // 1. It will run when the component is mounted
+  // // 2. It can be used when AJAX is used
+  componentDidMount() {
+    console.log("App mounted");
+  }
+
 
   handleIncrement = (counter) => {
     const counters = [...this.state.counters];
@@ -34,7 +58,12 @@ class App extends Component {
     this.setState({ counters });
   };
 
+  // Mount phase -- render
+  // 1. It will be call after constructor call
+  // 2. It is used to design the component and it to the webpage
+  //
   render() {
+    console.log("App - render");
     return (
       <React.Fragment>
         <NavBar
